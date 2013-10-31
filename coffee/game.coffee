@@ -1,14 +1,12 @@
+{util} = require "../coffee/util.coffee"
+{keybindings} = require "../coffee/keybindings.coffee"
+
 exports.Game = class Game extends atom.Game
   @SPEED = 300
 
   constructor: ->
     super
-    atom.input.bind atom.key.LEFT_ARROW, 'left'
-    atom.input.bind atom.key.A, 'left'
-
-    atom.input.bind atom.key.RIGHT_ARROW, 'right'
-    atom.input.bind atom.key.D, 'right'
-
+    keybindings.configure()
     @leftWidth_ = atom.width / 2
 
   update: (dt) ->

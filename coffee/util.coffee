@@ -1,4 +1,4 @@
-exports.util = new class Util
+exports.util =
 
   # Randomize the order of the elements in a given array in place
   shuffle: (arr) ->
@@ -30,3 +30,15 @@ exports.util = new class Util
     if value > max
       value = max
     return value
+
+  distance: (a, b) ->
+    Math.sqrt @distanceSquared a, b
+
+  distanceSquared: (a, b) ->
+    Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2)
+
+  sign: (num) ->
+    if num < 0 then -1 else 1
+
+  flipCoin: ->
+    Math.random() < .5
