@@ -9,4 +9,4 @@ http://nodejs.org/download/
 `sudo npm install -g coffee-script`
 
 3. Install jasmine-node  
-`sudo npm install - g jasmine-node`
+`sudo npm install -g jasmine-node`
