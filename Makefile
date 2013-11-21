@@ -1,20 +1,12 @@
 all: dev
 
-# Deploy the game to the github page: http://noahsug.github.io/my-project/
-# Note: You must create a gh-pages branch before running this command.
-#  $> g br gh-pages
-#  $> g push origin gh-pages
-deploy: prod
-	git checkout gh-pages
-	make
-	git commit -am "updated game"
-	git push
-	git checkout master
+# Run the test suit using node.js.
+test:
+	jasmine-node --coffee spec/
 
-# Important! Update ordered_game_files in populate_html.py before running this.
-# Create bin/ with required files to run the game.
-prod: dev
-	python nodejs_web/populate_html.py "PROD"
+# Automatically run tests whenever a change is made.
+watch:
+	jasmine-node --coffee spec/ --autotest --watch . --noStack
 
 # Same as prod, but required .js files are generated automatically.
 # Note: May cause console errors due to incorrect file order.
@@ -28,10 +20,25 @@ dev:
 	cp vendor/Canvas-Sprite-Animations/sprite.min.js bin/
 	python nodejs_web/populate_html.py "DEV"
 
-# Run the test suit using node.js.
-test:
-	jasmine-node --coffee spec/
+# Important! Update ordered_game_files in populate_html.py before running this.
+# Create bin/ with required files to run the game.
+prod: dev
+	python nodejs_web/populate_html.py "PROD"
 
-# Automatically run tests whenever a change is made.
-watch:
-	jasmine-node --coffee spec/ --autotest --watch . --noStack
+# Creates the gh-pages branch, which is where the production code will live.
+# Call this one time before any calls to 'make deploy' are called.
+deploy-init:
+	-git branch gh-pages
+	git push origin gh-pages
+	git checkout gh-pages
+	printf "all: clean\n	cp bin/* .\n	rm *.map\n	git checkout master assets\n	mv assets/* .\n	rm -rf assets\n	python fix_paths.py\n\nclean:	rm *.png\n	rm *.js\n	rm *.html\n" | cat > Makefile
+	git checkout master
+
+# Deploy the game to the github page: http://noahsug.github.io/my-project/
+# Important! Call 'make deploy-init' before running this.
+deploy: prod
+	git checkout gh-pages
+	make
+	git commit -am "updated game"
+	git push
+	git checkout master
