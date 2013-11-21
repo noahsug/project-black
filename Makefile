@@ -20,8 +20,8 @@ dev:
 	cp vendor/Canvas-Sprite-Animations/sprite.min.js bin/
 	python nodejs_web/populate_html.py "DEV"
 
-# Important! Update ordered_game_files in populate_html.py before running this.
 # Create bin/ with required files to run the game.
+# Important! Update ordered_game_files in populate_html.py before running this.
 prod: dev
 	python nodejs_web/populate_html.py "PROD"
 
