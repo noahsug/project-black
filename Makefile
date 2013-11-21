@@ -32,7 +32,7 @@ deploy-first-time:
 	git branch gh-pages
 	git push origin gh-pages
 	git checkout gh-pages
-	git cp tools/gh-pages/* .
+	cp tools/gh-pages/* .
 	git add *
 	git commit -am "initializing production content"
 	git push --set-upstream origin gh-pages
