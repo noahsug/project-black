@@ -25,8 +25,8 @@ dev:
 prod: dev
 	python nodejs_web/populate_html.py "PROD"
 
-# Creates the gh-pages branch, which is where the production code will live.
-# Call this one time before any calls to 'make deploy' are called.
+# Creates the gh-pages branch, which is where the production code will live, then deploys.
+# Only call this the first time you deploy, the rest of the times call 'make deploy'.
 # Make sure the master branch is clean before running this (e.g run 'git stash' then 'git apply' afterwards).
 deploy-first-time:
 	git branch gh-pages
@@ -40,7 +40,6 @@ deploy-first-time:
 	make deploy
 
 # Deploy the game to the github page: e.g. http://noahsug.github.io/project-black/
-# 'make deploy-first-time' must be called before this command can be repeatedly used.
 # Make sure the master branch is clean before running this (e.g run 'git stash' then 'git apply' afterwards).
 deploy: prod
 	git checkout gh-pages

@@ -27,4 +27,6 @@ Run `make` and then open **bin/main.html** in your browser of choice.
 ### Deploy
 Update `ordered_game_files` in populate_html.py.
 
-Run `make prod` to deploy the game to http://noahsug.github.io/my-project/
+Run `make prod` and then open **bin/main.html** to make sure your production build is working correctly.
+
+Run `make deploy-first-time` if this is your first time deploying, otherwise run 'make deploy' to deploy the game to http://noahsug.github.io/my-project/.
