@@ -33,7 +33,7 @@ deploy-first-time:
 	git push origin gh-pages
 	git checkout gh-pages
 	cp tools/gh-pages/* .
-	git add *
+	git add Makefile *.*
 	git commit -am "initializing production content"
 	git push --set-upstream origin gh-pages
 	git checkout master
