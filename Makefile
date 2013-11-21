@@ -14,16 +14,16 @@ dev:
 	-rm -r bin
 	mkdir bin
 	coffee -cmo bin coffee
-	coffee -cmo bin nodejs_web
+	coffee -cmo bin tools/nodejs_web
 	coffee -cmo bin vendor/atom
 	cp vendor/jquery.js bin/
 	cp vendor/Canvas-Sprite-Animations/sprite.min.js bin/
-	python nodejs_web/populate_html.py "DEV"
+	python tools/nodejs_web/populate_html.py "DEV"
 
 # Create bin/ with required files to run the game.
 # Important! Update ordered_game_files in populate_html.py before running this.
 prod: dev
-	python nodejs_web/populate_html.py "PROD"
+	python tools/nodejs_web/populate_html.py "PROD"
 
 # Creates the gh-pages branch, which is where the production code will live, then deploys.
 # Only call this the first time you deploy, the rest of the times call 'make deploy'.

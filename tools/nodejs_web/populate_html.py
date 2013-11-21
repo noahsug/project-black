@@ -7,10 +7,11 @@ ordered_game_files = [
   'keybindings',
   'game',
 ]
+
 for i, file_name in enumerate(ordered_game_files):
   ordered_game_files[i] = '<script type=\"text/javascript" src="%s.js"></script>' % (file_name)
 
-template = open('nodejs_web/index.html', 'r+')
+template = open('tools/nodejs_web/index.html', 'r+')
 html_content = template.read()
 template.close()
 
