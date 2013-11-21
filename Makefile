@@ -35,7 +35,7 @@ deploy-init:
 	printf "all: clean\n	cp bin/* .\n	rm *.map\n	git checkout master assets\n	mv assets/* .\n	rm -rf assets\n	python fix_paths.py\n\nclean:	rm *.png\n	rm *.js\n	rm *.html\n" | cat > Makefile
 	git add Makefile
 	git commit -am "initializing production content"
-	git push
+	git push --set-upstream origin gh-pages
 	git checkout master
 
 # Deploy the game to the github page: http://noahsug.github.io/my-project/
