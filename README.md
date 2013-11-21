@@ -1,4 +1,4 @@
-# Project Black
+# [Project Black](http://noahsug.github.io/project-black/)
 
 An HTML5 game framework focused on testing quickly and often without needing the browser.
 
