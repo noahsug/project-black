@@ -1,4 +1,4 @@
-all: edev
+all: dev
 
 # Run the test suit using node.js.
 test:
