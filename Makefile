@@ -1,4 +1,4 @@
-all: dev
+all: edev
 
 # Run the test suit using node.js.
 test:
@@ -45,6 +45,7 @@ deploy-first-time:
 deploy: prod
 	git checkout gh-pages
 	make
+	g add *.*
 	git commit -am "updated game"
 	git push
 	git checkout master
