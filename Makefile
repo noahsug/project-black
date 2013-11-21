@@ -38,8 +38,8 @@ deploy-init:
 	git push --set-upstream origin gh-pages
 	git checkout master
 
-# Deploy the game to the github page: http://noahsug.github.io/my-project/
-# Important! Call 'make deploy-init' before running this.
+# Deploy the game to the github page: e.g. http://noahsug.github.io/project-black/
+# 'make deploy-init' must be called before this command can be repeatedly used.
 deploy: prod
 	git checkout gh-pages
 	make
