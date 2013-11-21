@@ -286,6 +286,10 @@
       return atom.input.clearPressed();
     };
 
+    Game.prototype.resize = function() {
+      return this.draw();
+    };
+
     return Game;
 
   })();
