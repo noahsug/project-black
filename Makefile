@@ -2,6 +2,8 @@ all: dev
 
 # Deploy the game to the github page: http://noahsug.github.io/my-project/
 # Note: You must create a gh-pages branch before running this command.
+#  $> g br gh-pages
+#  $> g push origin gh-pages
 deploy: prod
 	git checkout gh-pages
 	make
