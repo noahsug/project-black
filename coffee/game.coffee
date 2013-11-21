@@ -1,5 +1,6 @@
-{util} = require "../coffee/util.coffee"
-{keybindings} = require "../coffee/keybindings.coffee"
+{atom} = require "../spec/mock/atom_mock.coffee"
+{keybindings} = require "./keybindings.coffee"
+{util} = require "./util.coffee"
 
 exports.Game = class Game extends atom.Game
   @SPEED = 300
@@ -7,18 +8,21 @@ exports.Game = class Game extends atom.Game
   constructor: ->
     super
     keybindings.configure()
-    @leftWidth_ = atom.width / 2
+    atom.setDesiredSurfaceArea 500000
+    @_maxTimeDifference = .075
+    @_leftWidth = atom.width / 2
 
   update: (dt) ->
-    if atom.input.down 'left'
-      @leftWidth_ -= Game.SPEED * dt
-    if atom.input.down 'right'
-      @leftWidth_ += Game.SPEED * dt
+    dt = Math.min dt, @_maxTimeDifference
+    if atom.input.down "left"
+      @_leftWidth -= Game.SPEED * dt
+    if atom.input.down "right"
+      @_leftWidth += Game.SPEED * dt
 
-    @leftWidth_ = util.bound @leftWidth_, 0, atom.width
+    @_leftWidth = util.bound @_leftWidth, 0, atom.width
 
   draw: ->
-    atom.context.fillStyle = 'black'
+    atom.context.fillStyle = "black"
     atom.context.fillRect 0, 0, atom.width, atom.height
-    atom.context.fillStyle = 'white'
-    atom.context.fillRect 0, 0, @leftWidth_, atom.height
+    atom.context.fillStyle = "white"
+    atom.context.fillRect 0, 0, @_leftWidth, atom.height

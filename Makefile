@@ -1,6 +1,7 @@
 all: dev
 
 # Deploy the game to the github page: http://noahsug.github.io/my-project/
+# Note: You must create a gh-pages branch before running this command.
 deploy: prod
 	git checkout gh-pages
 	make
@@ -8,12 +9,12 @@ deploy: prod
 	git push
 	git checkout master
 
+# Important! Update ordered_game_files in populate_html.py before running this.
 # Create bin/ with required files to run the game.
-# Specify required .js files in nodejs_web/populate_html.py.
 prod: dev
 	python nodejs_web/populate_html.py "PROD"
 
-# Same as deploy, but required .js files are generated automatically.
+# Same as prod, but required .js files are generated automatically.
 # Note: May cause console errors due to incorrect file order.
 dev:
 	-rm -r bin

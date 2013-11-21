@@ -25,4 +25,6 @@ Run `make test` to run tests once or `make watch` to run on every change.
 Run `make` and then open **bin/main.html** in your browser of choice.
 
 ### Deploy
+Update `ordered_game_files` in populate_html.py.
+
 Run `make prod` to deploy the game to http://noahsug.github.io/my-project/

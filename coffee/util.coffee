@@ -24,7 +24,7 @@ exports.util =
     return arr[@randInt arr.length - 1]
 
   bound: (value, min, max) ->
-    throw "max (${max}) must be >= to min (${min})" if max < min
+    throw "max (#{max}) must be >= to min (#{min})" if max < min
     if value < min
       value = min
     if value > max

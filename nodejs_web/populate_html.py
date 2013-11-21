@@ -1,40 +1,10 @@
 import os.path
 import sys
 
+# This must be updated before 'make prod' is run.
 ordered_game_files = [
   'util',
-  'event_emitter',
-  'position',
-
-  'level',
-  'graphic',
-  'background_graphic',
-  'entity_graphic',
-  'entity_sprite_graphic',
-
-  'factory',
-  'graphic_factory',
-  'sprite_builder',
-  'simple_sprite_builder',
-
-  'game_info',
   'keybindings',
-
-  'move_behavior',
-  'tracking_move_behavior',
-  'user_input_move_behavior',
-
-  'animation',
-
-  'entity',
-  'player',
-
-  'entity_sprite_factory',
-  'entity_factory',
-
-  'enemy_spawner',
-  'level_factory',
-  'renderer',
   'game',
 ]
 for i, file_name in enumerate(ordered_game_files):
