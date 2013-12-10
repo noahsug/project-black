@@ -16,8 +16,8 @@ dev:
 	coffee -cmo bin coffee
 	coffee -cmo bin tools/nodejs_web
 	coffee -cmo bin vendor/atom
-	cp vendor/jquery.js bin/
-	cp vendor/Canvas-Sprite-Animations/sprite.min.js bin/
+	-cp vendor/jquery.js bin/
+	-cp vendor/Canvas-Sprite-Animations/sprite.min.js bin/
 	python tools/nodejs_web/populate_html.py "DEV"
 
 # Create bin/ with required files to run the game.
